@@ -6,12 +6,20 @@ services:
       - "3000:3000"
     networks:
       - my-app-network
+    image: my-frontend-image
   backend:
     build: ./backend
     ports:
       - "5000:5000"
     networks:
       - my-app-network
+    image: my-backend-image
+    environment:
+      - DB_HOST=my-rds-endpoint.rds.amazonaws.com
+      - DB_PORT=3306
+      - DB_NAME=mysql
+      - DB_USER=root
+      - DB_PASSWORD=
   db:
     image: mariadb:latest
     environment:
