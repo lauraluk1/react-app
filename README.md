@@ -33,45 +33,6 @@ Docker
 
 Containers: Each component (frontend, backend, database) runs in its own Docker container
 Docker Compose: Orchestrates multi-container Docker applications
-Architecture Diagram
-Here is a visual representation of the architecture:
-
-sql
-Copy code
-                          +-------------------+
-                          |    End Users      |
-                          | (Web Browsers)    |
-                          +-------------------+
-                                   |
-                                   | HTTPS/HTTP
-                                   |
-                          +-------------------+
-                          |    Load Balancer  |
-                          +-------------------+
-                                   |
-                                   | HTTP
-                                   |
-            +--------------------------------------------------+
-            |                      VPC                         |
-            |                                                   |
-            |    +-----------------+       +-----------------+  |
-            |    |    Frontend      |       |    Backend      |  |
-            |    |   (React App)    |       | (Node.js / Express)|
-            |    |   Docker Container|       | Docker Container |
-            |    +-----------------+       +-----------------+  |
-            |                                                   |
-            |                      +-----------------+        |
-            |                      |    Database     |        |
-            |                      |   (MySQL)       |        |
-            |                      | Docker Container|        |
-            |                      +-----------------+        |
-            +--------------------------------------------------+
-                                   |
-                                   | SQL
-                                   |
-                          +-------------------+
-                          |     MySQL DB       |
-                          +-------------------+
 
 Description of Components
 Frontend (React App):
