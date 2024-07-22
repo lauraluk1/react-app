@@ -1,0 +1,27 @@
+version: '3'
+services:
+  frontend:
+    build: ./frontend
+    ports:
+      - "3000:3000"
+    networks:
+      - my-app-network
+  backend:
+    build: ./backend
+    ports:
+      - "5000:5000"
+    networks:
+      - my-app-network
+  db:
+    image: mariadb:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: mysql
+      MYSQL_USER: root
+      MYSQL_PASSWORD: 
+    networks:
+      - my-app-network
+
+networks:
+  my-app-network:
+    driver: bridge
